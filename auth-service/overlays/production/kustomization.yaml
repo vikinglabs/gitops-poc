@@ -1,0 +1,16 @@
+resources:
+- ../../base
+
+patches:
+- target:
+    kind: Ingress
+    name: auth-service
+  path: ingress-patch.yaml
+- target:
+    kind: Deployment
+    name: auth-service
+  path: deployment-patch.yaml
+- target:
+    kind: HorizontalPodAutoscaler
+    name: auth-service
+  path: hpa-patch.yaml
