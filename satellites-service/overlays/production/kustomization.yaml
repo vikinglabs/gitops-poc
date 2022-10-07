@@ -1,0 +1,16 @@
+resources:
+- ../../base
+
+patches:
+- target:
+    kind: Ingress
+    name: satellites-service
+  path: ingress-patch.yaml
+- target:
+    kind: Deployment
+    name: satellites-service
+  path: deployment-patch.yaml
+- target:
+    kind: HorizontalPodAutoscaler
+    name: satellites-service
+  path: hpa-patch.yaml

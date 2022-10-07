@@ -1,0 +1,10 @@
+namespace: space
+
+resources:
+- ../../base
+
+patches:
+- target:
+    kind: Ingress
+    name: apollo-router
+  path: ingress-patch.yaml
