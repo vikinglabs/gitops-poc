@@ -15,7 +15,7 @@ spec:
         app: planets-service
     spec:
       containers:
-      - image: docker.io/lmctague/planets-service:0.1.0
+      - image: docker.io/lmctague/planets-service:7315129adf774e9b0837781a8c7a283aee354e54
         name: planets-service
         ports:
         - name: http
