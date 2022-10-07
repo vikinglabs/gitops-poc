@@ -29,8 +29,11 @@ spec:
         #    path: "/"
         #    port: http
         env:
-        - name: DATABASE_URL 
-          value: "postgres://demo:7O2Beg8FlCJvJsQL@postgres-postgresql.demo.svc.cluster.local/users"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: pg-database
+              key: pg-database
         - name: PASSWORD_SECRET_KEY
           value: ""
         - name: JWT_SECRET_KEY

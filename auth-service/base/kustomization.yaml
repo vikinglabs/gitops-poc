@@ -7,3 +7,8 @@ namespace: demo
 
 commonLabels:
   app: auth-service
+
+secretGenerator:
+- name: pg-database
+  literals:
+  - pg-database=postgres://$PG_USER:$PG_PASSWORD@postgres-postgresql.demo.svc.cluster.local/users
