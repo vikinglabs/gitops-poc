@@ -30,7 +30,7 @@ spec:
         #    port: http
         env:
         - name: DATABASE_URL
-          value: "postgres://users-user:94nZL2HtN51yAwKs@postgres-postgresql.demo.svc.cluster.local/users"
+          value: "postgres://users_user:94nZL2HtN51yAwKs@postgres-postgresql.demo.svc.cluster.local/users"
         - name: PASSWORD_SECRET_KEY
           value: ""
         - name: JWT_SECRET_KEY
