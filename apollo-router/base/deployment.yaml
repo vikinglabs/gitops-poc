@@ -15,7 +15,7 @@ spec:
         app: apollo-router
     spec:
       containers:
-      - image: lmctague/graphql-rust:apollo-router
+      - image: lmctague/apollo-router:17a72dbb0b5852976495fd95edb3ef064cb40b07
         name: apollo-router
         ports:
         - name: http

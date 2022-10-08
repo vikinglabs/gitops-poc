@@ -15,7 +15,7 @@ spec:
         app: satellites-service
     spec:
       containers:
-      - image: docker.io/lmctague/satellites-service:fc3e6d31a20d7d966c03285b91b09675dc84a1b7
+      - image: docker.io/lmctague/satellites-service:17a72dbb0b5852976495fd95edb3ef064cb40b07
         name: satellites-service
         ports:
         - name: http
