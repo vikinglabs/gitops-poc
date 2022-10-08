@@ -34,7 +34,7 @@ spec:
         - name: KAFKA_BROKER
           value: "kafka.demo.svc.cluster.local:9092"
         - name: KAFKA_TOPIC
-          value: "raphql_topic"
+          value: "demo_topic"
         resources:
           requests:
             memory: "64Mi"

@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: apollo-router
 spec:
-  ingressClassName: apollo-router
+  ingressClassName: kong
   rules:
   - http:
       paths:
