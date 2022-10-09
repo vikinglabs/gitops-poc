@@ -60,9 +60,9 @@ type InhabitedPlanetDetails implements Details
 scalar join__FieldSet
 
 enum join__Graph {
-  AUTH_SERVICE @join__graph(name: "auth-service", url: "http://auth-service:80")
-  PLANETS_SERVICE @join__graph(name: "planets-service", url: "http://planets-service:80")
-  SATELLITES_SERVICE @join__graph(name: "satellites-service", url: "http://satellites-service:80")
+  AUTH_SERVICE @join__graph(name: "auth-service", url: "http://auth-service.demo.svc.cluster.local:80")
+  PLANETS_SERVICE @join__graph(name: "planets-service", url: "http://planets-service.demo.svc.cluster.local:80")
+  SATELLITES_SERVICE @join__graph(name: "satellites-service", url: "http://satellites-service.demo.svc.cluster.local:80")
 }
 
 enum LifeExists
