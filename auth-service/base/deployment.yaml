@@ -32,9 +32,9 @@ spec:
         - name: DATABASE_URL
           value: "postgres://users_user:94nZL2HtN51yAwKs@postgres-postgresql.demo.svc.cluster.local/users"
         - name: PASSWORD_SECRET_KEY
-          value: ""
+          value: "test_key"
         - name: JWT_SECRET_KEY
-          value: ""
+          value: "secret_key"
         resources:
           requests:
             memory: "64Mi"
