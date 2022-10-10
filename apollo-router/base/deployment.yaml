@@ -15,7 +15,7 @@ spec:
         app: apollo-router
     spec:
       containers:
-      - image: lmctague/apollo-router:17a72dbb0b5852976495fd95edb3ef064cb40b07
+      - image: lmctague/apollo-router:8665318884a4f7919ab45734fdb87cd7213a0626
         name: apollo-router
         ports:
         - name: http

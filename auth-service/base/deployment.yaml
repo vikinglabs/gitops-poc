@@ -15,7 +15,7 @@ spec:
         app: auth-service
     spec:
       containers:
-      - image: docker.io/lmctague/auth-service:17a72dbb0b5852976495fd95edb3ef064cb40b07
+      - image: docker.io/lmctague/auth-service:8665318884a4f7919ab45734fdb87cd7213a0626
         name: auth-service
         ports:
         - name: http
