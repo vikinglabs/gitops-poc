@@ -14,10 +14,10 @@ telemetry:
       enabled: true
       listen: 127.0.0.1:9090
       path: /metrics
-#  tracing:
-#    jaeger:
-#      collector:
-#        endpoint: "http://my-jaeger-collector"
+    tracing:
+      jaeger:
+        collector:
+          endpoint: "http://tempo-gateway.monitoring.svc.cluster.local"
 #        username: "${env.JAEGER_USERNAME}"
 #        password: "${env.JAEGER_PASSWORD}"
 
