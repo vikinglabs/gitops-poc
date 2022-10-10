@@ -15,7 +15,7 @@ spec:
         app: auth-service
     spec:
       containers:
-      - image: docker.io/lmctague/auth-service:fc3e6d31a20d7d966c03285b91b09675dc84a1b7
+      - image: docker.io/lmctague/auth-service:17a72dbb0b5852976495fd95edb3ef064cb40b07
         name: auth-service
         ports:
         - name: http
@@ -30,11 +30,11 @@ spec:
         #    port: http
         env:
         - name: DATABASE_URL
-          value: "postgres://demo:7O2Beg8FlCJvJsQL@postgres-postgresql.demo.svc.cluster.local/users"
+          value: "postgres://users_user:94nZL2HtN51yAwKs@postgres-postgresql.demo.svc.cluster.local/users"
         - name: PASSWORD_SECRET_KEY
-          value: ""
+          value: "test_key"
         - name: JWT_SECRET_KEY
-          value: ""
+          value: "secret_key"
         resources:
           requests:
             memory: "64Mi"
