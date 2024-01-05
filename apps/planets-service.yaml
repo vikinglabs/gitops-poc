@@ -4,9 +4,7 @@ metadata:
   name: planets-service
 spec:
   destination:
-    name: ''
     namespace: demo
-    server: 'https://kubernetes.default.svc'
   source:
     path: planets-service/overlays/development
     repoURL: 'https://github.com/shipwright-sh/k8s-demo-cfg.git'
