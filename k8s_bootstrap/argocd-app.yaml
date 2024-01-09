@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: argocd
+  source:
+    path: bootstrap/
+    repoURL: https://github.com/shipwright-sh/k8s-demo-cfg.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
