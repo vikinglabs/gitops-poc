@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: argocd
   source:
-    path: bootstrap/
+    path: kustomize-install/
     repoURL: https://github.com/shipwright-sh/k8s-demo-cfg.git
     targetRevision: main
   syncPolicy:
