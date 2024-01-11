@@ -10,7 +10,9 @@ imagePullSecrets:
 
 appSettings:
   - name: "LOG_LEVEL"
-    value: "Warning"
+    value: "Error"
+  - name: "ASPNETCORE_ENVIRONMENT"
+    value: ""
 
 serviceAccount:
   create: false

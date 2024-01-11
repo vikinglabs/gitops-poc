@@ -1,5 +1,5 @@
 image:
-  tag: ""
+  tag: "0.0.11"
 
 appSettings:
   - name: "ASPNETCORE_ENVIRONMENT"
