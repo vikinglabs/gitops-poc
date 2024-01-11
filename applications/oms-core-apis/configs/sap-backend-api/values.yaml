@@ -8,11 +8,7 @@ image:
 imagePullSecrets:
   - name: regcred
 
-appSettings:
-  - name: "LOG_LEVEL"
-    value: "Error"
-  - name: "ASPNETCORE_ENVIRONMENT"
-    value: ""
+appSettings: {}
 
 serviceAccount:
   create: false
