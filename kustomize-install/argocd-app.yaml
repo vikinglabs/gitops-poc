@@ -9,7 +9,7 @@ spec:
   project: argocd
   source:
     path: kustomize-install
-    repoURL: https://github.com/shipwright-sh/k8s-demo-cfg.git
+    repoURL: https://github.com/shipwright-sh/gitops-poc.git
     targetRevision: main
   syncPolicy:
     automated:
