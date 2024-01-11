@@ -34,5 +34,5 @@ spec:
             maxDuration: 3m0s
             factor: 2
       destination:
-        server: '{{path.basename}}'
+        name: '{{path.basename}}'
         namespace: oms-core-apis
