@@ -1,9 +1,0 @@
-resources:
-  - ./deployment.yaml
-  - ./service.yaml
-  - ./hpa.yaml
-
-namespace: demo
-
-commonLabels:
-  app: satellites-service

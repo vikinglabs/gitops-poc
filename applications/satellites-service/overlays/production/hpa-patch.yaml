@@ -1,3 +1,0 @@
-- op: replace
-  path: "/spec/maxReplicas" 
-  value: 10
