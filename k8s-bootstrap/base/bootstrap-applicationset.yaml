@@ -1,27 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: apollo-router
+  name: oms-core-apis
   namespace: argocd
 spec:
   generators:
   - git:
-      repoURL: https://github.com/shipwright-sh/gitops-poc.git
-      revision: main
-      files:
+      repoURL: https://github.com/vikinglabs/gitops-poc.git
+      revision: HEAD
+      directories:
       - path: "applications/oms-core-apis/configs/*/*"
   template:
     metadata:
-      name: '{{path[2]}}'
+      name: '{{path[3]}}-{{path.basename}}'
     spec:
       project: default
       source:
         helm:
-          valuesFiles:
-            - "applications/oms-core-apis/configs/{{path[2]}}/{{path.basename}}/values.yaml"
-            - "applications/oms-core-apis/configs/{{path[2]}}/values.yaml"
-        repoURL: https://github.com/shipwright-sh/gitops-poc.git
+          valueFiles:
+            - "configs/{{path[3]}}/{{path.basename}}/values.yaml"
+            - "configs/{{path[3]}}/values.yaml"
+        repoURL: https://github.com/vikinglabs/gitops-poc.git
         targetRevision: HEAD
+        path: applications/oms-core-apis
       syncPolicy:
         automated:
           prune: true
@@ -34,4 +35,4 @@ spec:
             factor: 2
       destination:
         server: '{{path.basename}}'
-        namespace: core-apis
+        namespace: oms-core-apis
