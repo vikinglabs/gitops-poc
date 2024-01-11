@@ -1,1 +1,1 @@
-# k8s-demo-cfg
+# OMS GitOps POC
