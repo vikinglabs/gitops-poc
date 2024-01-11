@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apollo-router
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/shipwright-sh/gitops-poc.git
+      revision: main
+      files:
+      - path: "applications/oms-core-apis/configs/*/*"
+  template:
+    metadata:
+      name: '{{path[2]}}'
+    spec:
+      project: default
+      source:
+        helm:
+          valuesFiles:
+            - "applications/oms-core-apis/configs/{{path[2]}}/{{path.basename}}/values.yaml"
+            - "applications/oms-core-apis/configs/{{path[2]}}/values.yaml"
+        repoURL: https://github.com/shipwright-sh/gitops-poc.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        retry:
+          limit: 5
+          backoff:
+            duration: 5s
+            maxDuration: 3m0s
+            factor: 2
+      destination:
+        server: '{{path.basename}}'
+        namespace: core-apis

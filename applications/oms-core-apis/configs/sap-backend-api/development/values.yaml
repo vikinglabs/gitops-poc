@@ -1,0 +1,6 @@
+image:
+  tag: ""
+
+appSettings:
+  - name: "ASPNETCORE_ENVIRONMENT"
+    value: "development"
