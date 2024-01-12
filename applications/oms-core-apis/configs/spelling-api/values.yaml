@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: 586495777821.dkr.ecr.us-east-1.amazonaws.com/spelling-poc
+  repository: 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-spelling
   pullPolicy: IfNotPresent
   tag: ""
 
