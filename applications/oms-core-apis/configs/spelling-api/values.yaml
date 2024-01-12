@@ -5,6 +5,9 @@ image:
   pullPolicy: IfNotPresent
   tag: ""
 
+fullnameOverride: spelling-api
+nameOverride: spelling-api
+
 imagePullSecrets:
   - name: regcred
 

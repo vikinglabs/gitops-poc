@@ -5,6 +5,9 @@ image:
   pullPolicy: IfNotPresent
   tag: ""
 
+fullnameOverride: device-usage-api
+nameOverride: device-usage-api
+
 imagePullSecrets:
   - name: regcred
 

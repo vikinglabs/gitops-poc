@@ -5,6 +5,9 @@ image:
   pullPolicy: IfNotPresent
   tag: ""
 
+fullnameOverride: sap-backend-api
+nameOverride: sap-backend-api
+
 imagePullSecrets:
   - name: regcred
 
