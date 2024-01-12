@@ -1,6 +1,5 @@
 apiVersion: v2
 name: oms-common-chart
-description: A Helm chart for Kubernetes
+description: OMS common Helm chart template.
 type: application
 version: 0.1.0
-appVersion: "0.1.0"
