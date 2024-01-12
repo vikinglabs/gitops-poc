@@ -17,4 +17,4 @@ spec:
     - namespace: argocd
       server: https://kubernetes.default.svc
   sourceRepos:
-    - https://github.com/shipwright-sh/gitops-poc.git
+    - https://github.com/vikinglabs/gitops-poc.git
