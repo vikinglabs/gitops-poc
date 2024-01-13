@@ -10,11 +10,7 @@ spec:
               repoURL: https://github.com/vikinglabs/gitops-poc.git
               revision: HEAD
               directories:
-                - path: applications/*
-                - path: applications/istio-control-plane
-                  exclude: true
-                - path: applications/oms-core-apis
-                  exclude: true
+                - path: applications/common-utilities/*
           - cluster:
               selector:
                 matchLabels:
