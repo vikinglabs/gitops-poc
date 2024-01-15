@@ -63,6 +63,10 @@ docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-device-usage:41 loca
 docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-sap-be:1.3.0 localhost:5001/oms-sap-be:1.3.0
 docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-spelling:0.0.11 localhost:5001/oms-spelling:0.0.11
 
+docker push localhost:5001/oms-device-usage:0.1.0
+docker push localhost:5001/oms-sap-be:1.3.0
+docker push localhost:5001/oms-spelling:0.0.11
+
 # Create vCluster for development, staging and production
 vcluster create development --create-namespace
 vcluster create staging --create-namespace
