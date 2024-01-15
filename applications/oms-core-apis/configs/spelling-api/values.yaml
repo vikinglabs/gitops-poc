@@ -1,7 +1,5 @@
 replicaCount: 1
 
-namespace: oms-core-apis
-
 image:
   repository: 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-spelling
   pullPolicy: IfNotPresent
