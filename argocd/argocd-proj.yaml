@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: argocd
+  namespace: argocd
 spec:
   roles:
     - name: read-sync

@@ -11,7 +11,7 @@ spec:
               revision: HEAD
               directories:
                 - path: applications/common-utilities/*
-          - cluster:
+          - clusters:
               selector:
                 matchLabels:
                   argocd.argoproj.io/secret-type: cluster

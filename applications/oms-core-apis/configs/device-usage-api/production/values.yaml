@@ -1,4 +1,5 @@
 image:
+  repository: localhost:5001/oms-device-usage
   tag: "41"
 
 appSettings:

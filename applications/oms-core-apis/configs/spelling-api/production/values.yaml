@@ -1,4 +1,5 @@
 image:
+  repository: localhost:5001/oms-spelling
   tag: "0.0.11"
 
 appSettings:
