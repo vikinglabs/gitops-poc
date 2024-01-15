@@ -1,5 +1,5 @@
 image:
-  repository: localhost:5001/oms-sap-be
+  repository: kind-registry:5001/oms-sap-be
   tag: "1.3.0"
 
 appSettings:

@@ -1,5 +1,5 @@
 image:
-  repository: localhost:5001/oms-device-usage
+  repository: kind-registry:5001/oms-device-usage
   tag: "41"
 
 appSettings:
