@@ -179,4 +179,4 @@ kubectl apply -f argocd/argocd-app.yaml
 
 # Bootstrap applications
 # kubectl apply -k cluster-bootstrap/
-kubectl apply -k cluster-bootstrap/
+kubectl apply -k demo-cluster-bootstrap/
