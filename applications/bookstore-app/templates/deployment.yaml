@@ -30,16 +30,20 @@ spec:
       serviceAccountName: {{ include "test.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.initContainers }}
       initContainers:
         {{- toYaml .Values.initContainers | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.appSettings }}
           env:
             {{- toYaml .Values.appSettings | nindent 12 }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
