@@ -67,10 +67,10 @@ EOF
 # docker push localhost:5001/oms-sap-be:1.3.0
 # docker push localhost:5001/oms-spelling:0.0.11
 # 
-# # Create vCluster for development, staging and production
-# vcluster create development --create-namespace
-# vcluster create staging --create-namespace
-# vcluster create production --create-namespace
+# Create vCluster for development, staging and production
+vcluster create development --create-namespace
+vcluster create staging --create-namespace
+vcluster create production --create-namespace
 
 # helm upgrade --install vcluster-development vcluster \
 #   --repo https://charts.loft.sh \
