@@ -52,25 +52,25 @@ data:
     help: "https://kind.sigs.k8s.io/docs/user/local-registry/"
 EOF
 
-# Pull docker images
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 586495777821.dkr.ecr.us-east-1.amazonaws.com
-
-docker pull 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-device-usage:41
-docker pull 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-sap-be:1.3.0
-docker pull 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-spelling:0.0.11
-
-docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-device-usage:41 localhost:5001/oms-device-usage:0.1.0
-docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-sap-be:1.3.0 localhost:5001/oms-sap-be:1.3.0
-docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-spelling:0.0.11 localhost:5001/oms-spelling:0.0.11
-
-docker push localhost:5001/oms-device-usage:0.1.0
-docker push localhost:5001/oms-sap-be:1.3.0
-docker push localhost:5001/oms-spelling:0.0.11
-
-# Create vCluster for development, staging and production
-vcluster create development --create-namespace
-vcluster create staging --create-namespace
-vcluster create production --create-namespace
+# # Pull docker images
+# aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 586495777821.dkr.ecr.us-east-1.amazonaws.com
+# 
+# docker pull 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-device-usage:41
+# docker pull 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-sap-be:1.3.0
+# docker pull 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-spelling:0.0.11
+# 
+# docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-device-usage:41 localhost:5001/oms-device-usage:0.1.0
+# docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-sap-be:1.3.0 localhost:5001/oms-sap-be:1.3.0
+# docker tag 586495777821.dkr.ecr.us-east-1.amazonaws.com/oms-spelling:0.0.11 localhost:5001/oms-spelling:0.0.11
+# 
+# docker push localhost:5001/oms-device-usage:0.1.0
+# docker push localhost:5001/oms-sap-be:1.3.0
+# docker push localhost:5001/oms-spelling:0.0.11
+# 
+# # Create vCluster for development, staging and production
+# vcluster create development --create-namespace
+# vcluster create staging --create-namespace
+# vcluster create production --create-namespace
 
 # helm upgrade --install vcluster-development vcluster \
 #   --repo https://charts.loft.sh \
@@ -178,4 +178,5 @@ kubectl apply -f argocd/argocd-proj.yaml
 kubectl apply -f argocd/argocd-app.yaml
 
 # Bootstrap applications
+# kubectl apply -k cluster-bootstrap/
 kubectl apply -k cluster-bootstrap/

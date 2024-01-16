@@ -1,0 +1,3 @@
+image:
+#  repository: kind-registry:5001/shop-ui
+  tag: "1.0"
