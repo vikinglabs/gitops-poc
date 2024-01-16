@@ -10,6 +10,8 @@ nameOverride: ahop-api
 
 imagePullSecrets: {}
 
+initContainers: {}
+
 appSettings: {}
 
 serviceAccount:
