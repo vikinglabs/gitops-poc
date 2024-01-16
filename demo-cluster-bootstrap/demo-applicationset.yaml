@@ -22,7 +22,7 @@ spec:
             - "configs/{{path[3]}}/{{path.basename}}/values.yaml"
         repoURL: https://github.com/vikinglabs/gitops-poc.git
         targetRevision: HEAD
-        path: applications/demo-app
+        path: applications/bookstore-app
       syncPolicy:
         automated:
           prune: true
