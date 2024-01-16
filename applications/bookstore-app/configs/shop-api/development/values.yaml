@@ -7,14 +7,16 @@ appSettings:
     value: production
   - name: RAILS_LOG_TO_STDOUT
     value: "1"
+  - name: DB_HOST
+    value: bookstore-mysql
+  - name: DB_NAME
+    value: bookstore
+  - name: DB_USER
+    value: appuser
+  - name: DB_PASSWORD
+    value: "YXBwdXNlcjEyMwo="
 
-volumes:
-  - name: shopapi-sec-vol
-    secret:
-      secretName: shopapi-sec
-      optional: false
-
-volumeMounts:
-  - name: shopapi-sec-vol
-    mountPath: /app/config/app_secret 
-    readOnly: true
+initContainers:
+  shopapi-job-dbc:
+    image: devteds/demo-bookstore-shopapi:1.0
+    command: ["bundle", "exec", "rails", "db:migrate"]

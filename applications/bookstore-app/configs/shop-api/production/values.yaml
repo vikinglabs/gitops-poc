@@ -1,3 +1,22 @@
 image:
 #  repository: kind-registry:5001/shop-api
   tag: "1.0"
+
+appSettings:
+  - name: RAILS_ENV
+    value: production
+  - name: RAILS_LOG_TO_STDOUT
+    value: "1"
+  - name: DB_HOST
+    value: bookstore-mysql
+  - name: DB_NAME
+    value: bookstore
+  - name: DB_USER
+    value: appuser
+  - name: DB_PASSWORD
+    value: "YXBwdXNlcjEyMwo="
+
+initContainers:
+  shopapi-job-dbc:
+    image: devteds/demo-bookstore-shopapi:1.0
+    command: ["bundle", "exec", "rails", "db:migrate"]
