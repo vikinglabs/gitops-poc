@@ -1,4 +1,5 @@
-auth:
-  username: appuser
-  password: appuser123
-  database: bookstore
+mysql:
+  auth:
+    username: appuser
+    password: appuser123
+    database: bookstore
