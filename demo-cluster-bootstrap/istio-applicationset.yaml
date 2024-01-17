@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: istio
+spec:
+  generators:
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/vikinglabs/gitops-poc.git
+              revision: HEAD
+              directories:
+                - path: demo-applications/*
+                - path: demo-applications/nginx-ingress
+                  exclude: true
+          - list:
+              elements:
+                - cluster: development
+                  url: https://development.vcluster-development:443
+                - cluster: staging
+                  url: https://staging.vcluster-staging:443
+                - cluster: production
+                  url: https://production.vcluster-production:443
+  template:
+    metadata:
+      name: "{{path.basename}}"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/vikinglabs/gitops-poc.git
+        targetRevision: HEAD
+        path: "{{path}}"
+      destination:
+        server: "{{url}}"
+        namespace: "{{path.basename}}"

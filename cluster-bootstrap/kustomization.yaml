@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-#  - bootstrap-applicationset.yaml
   - oms-applicationset.yaml

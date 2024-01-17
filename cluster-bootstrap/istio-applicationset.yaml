@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: bootstrap
+  name: istio
 spec:
   generators:
     - matrix:
@@ -10,11 +10,17 @@ spec:
               repoURL: https://github.com/vikinglabs/gitops-poc.git
               revision: HEAD
               directories:
-                - path: applications/common-utilities/*
-          - clusters:
-              selector:
-                matchLabels:
-                  argocd.argoproj.io/secret-type: cluster
+                - path: demo-applications/*
+                - path: demo-applications/nginx-ingress
+                  exclude: true
+          - list:
+              elements:
+                - cluster: development
+                  url: https://development.vcluster-development:443
+                - cluster: staging
+                  url: https://staging.vcluster-staging:443
+                - cluster: production
+                  url: https://production.vcluster-production:443
   template:
     metadata:
       name: "{{path.basename}}"
@@ -25,5 +31,5 @@ spec:
         targetRevision: HEAD
         path: "{{path}}"
       destination:
-        server: "{{server}}"
+        server: "{{url}}"
         namespace: "{{path.basename}}"
