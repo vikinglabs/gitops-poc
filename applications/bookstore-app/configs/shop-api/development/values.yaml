@@ -8,7 +8,7 @@ appSettings:
   - name: RAILS_LOG_TO_STDOUT
     value: "1"
   - name: DB_HOST
-    value: development-mysql.mysql.svc.cluster.local
+    value: mysql.mysql.svc.cluster.local
   - name: DB_NAME
     value: bookstore
   - name: DB_USER
@@ -26,7 +26,7 @@ initContainers:
       - name: RAILS_LOG_TO_STDOUT
         value: "1"
       - name: DB_HOST
-        value: development-mysql.mysql.svc.cluster.local
+        value: mysql.mysql.svc.cluster.local
       - name: DB_NAME
         value: bookstore
       - name: DB_USER
