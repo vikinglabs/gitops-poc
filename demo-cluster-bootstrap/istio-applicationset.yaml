@@ -25,7 +25,7 @@ spec:
                   url: https://production.vcluster-production:443
   template:
     metadata:
-      name: "{{path.basename}}"
+      name: "{{cluster}}-{{path.basename}}"
     spec:
       project: default
       source:
