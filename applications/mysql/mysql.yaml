@@ -1,29 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: mysql
-  namespace: argocd
-spec:
-  project: default
-  source:
-    chart: mysql
-    repoURL: oci://registry-1.docker.io/bitnamicharts/mysql
-    targetRevision: 9.16.4
-    helm:
-      releaseName: mqsql
-    parameters:
-    - name: "auth.usename"
-      value: appuser
-    - name: "auth.password"
-      value: appuser123
-    - name: "auth.database"
-      value: bookstore
-  destination:
-    server: {{ .Values.spec.destination.server }}
-    namespace: mysql
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+auth:
+  username: appuser
+  password: appuser123
+  database: bookstore
