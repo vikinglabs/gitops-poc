@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - mysql-applicationset.yaml
-  - demo-applicationset.yaml
+  - guestbook-applicationset.yaml

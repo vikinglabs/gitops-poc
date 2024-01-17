@@ -18,9 +18,9 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/vikinglabs/gitops-poc.git
+        repoURL: https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
         targetRevision: HEAD
-        path: demo-applications/guestbook
+        path: quickstarts/guestbook/all-in-one
       syncPolicy:
         automated:
           prune: true

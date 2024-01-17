@@ -1,5 +1,0 @@
-apiVersion: v2
-name: guestbook
-description: Common Helm chart template for bookstore demo app.
-type: application
-version: 0.1.0
