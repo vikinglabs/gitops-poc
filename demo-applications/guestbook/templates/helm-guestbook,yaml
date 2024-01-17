@@ -6,9 +6,6 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    namespace: helm-guestbook
-    server: "{{url}}"
   project: default
   source:
     path: helm-guestbook
