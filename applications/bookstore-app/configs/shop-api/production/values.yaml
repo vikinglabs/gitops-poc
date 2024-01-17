@@ -8,13 +8,13 @@ appSettings:
   - name: RAILS_LOG_TO_STDOUT
     value: "1"
   - name: DB_HOST
-    value: bookstore-mysql
+    value: production-mysql.mysql.svc.cluster.local
   - name: DB_NAME
     value: bookstore
   - name: DB_USER
     value: appuser
   - name: DB_PASSWORD
-    value: "YXBwdXNlcjEyMwo="
+    value: "appuser123"
 
 initContainers:
   - name: shopapi-dbc
@@ -26,10 +26,10 @@ initContainers:
       - name: RAILS_LOG_TO_STDOUT
         value: "1"
       - name: DB_HOST
-        value: bookstore-mysql
+        value: production-mysql.mysql.svc.cluster.local
       - name: DB_NAME
         value: bookstore
       - name: DB_USER
         value: appuser
       - name: DB_PASSWORD
-        value: "YXBwdXNlcjEyMwo="
+        value: "appuser123"
