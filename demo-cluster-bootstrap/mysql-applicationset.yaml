@@ -6,7 +6,7 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: developmenet
+      - cluster: development
         url: https://development.vcluster-development:443
       - cluster: staging
         url: https://staging.vcluster-staging:443
