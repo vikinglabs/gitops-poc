@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     namespace: helm-guestbook
-    server: {{ .Values.spec.destination.server }}
+    server: "{{url}}"
   project: default
   source:
     path: helm-guestbook
