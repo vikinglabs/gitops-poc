@@ -4,5 +4,5 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-#  - bootstrap-applicationset.yaml
+  - mysql-applicationset.yaml
   - demo-applicationset.yaml
