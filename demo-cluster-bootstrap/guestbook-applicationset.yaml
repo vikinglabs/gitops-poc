@@ -1,28 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: bookstore-app
-  namespace: argocd
+  name: guestbook
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/vikinglabs/gitops-poc.git
-      revision: HEAD
-      directories:
-      - path: "applications/bookstore-app/configs/*/*"
+  - list:
+      elements:
+      - cluster: development
+        url: https://development.vcluster-development:443
+      - cluster: staging
+        url: https://staging.vcluster-staging:443
+      - cluster: production
+        url: https://production.vcluster-production:443
   template:
     metadata:
-      name: '{{path[3]}}-{{path.basename}}'
+      name: '{{cluster}}-guestbook'
     spec:
       project: default
       source:
-        helm:
-          valueFiles:
-            - "configs/{{path[3]}}/values.yaml"
-            - "configs/{{path[3]}}/{{path.basename}}/values.yaml"
         repoURL: https://github.com/vikinglabs/gitops-poc.git
         targetRevision: HEAD
-        path: applications/bookstore-app
+        path: demo-applications/guestbook
       syncPolicy:
         automated:
           prune: true
@@ -36,5 +34,5 @@ spec:
             maxDuration: 3m0s
             factor: 2
       destination:
-        name: '{{path.basename}}'
-        namespace: bookstore-app
+        server: '{{url}}'
+        namespace: guestbook

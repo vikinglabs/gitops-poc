@@ -1,3 +1,0 @@
-image:
-#  repository: kind-registry:5001/demo-bookstore-website
-  tag: "1.0"
