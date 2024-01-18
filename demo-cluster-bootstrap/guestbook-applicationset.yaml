@@ -20,7 +20,7 @@ spec:
       source:
         repoURL: https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
         targetRevision: HEAD
-        path: quickstarts/guestbook/all-in-one
+        path: quickstarts/guestbook
       syncPolicy:
         automated:
           prune: true

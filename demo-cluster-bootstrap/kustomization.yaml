@@ -4,5 +4,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - istio-applicationset.yaml
-  - guestbook-applicationset.yaml
+  - istio-base-applicationset.yaml
+  - istio-istiod-applicationset.yaml
+  - istio-gateway-applicationset.yaml
+ # - guestbook-applicationset.yaml

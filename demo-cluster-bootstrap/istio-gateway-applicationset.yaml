@@ -2,26 +2,37 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: istio-gateway
-  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/vikinglabs/gitops-poc.git
-      revision: HEAD
-      directories:
-      - path: "demo-applications/istio-gateway/configs/*"
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/vikinglabs/gitops-poc.git
+              revision: HEAD
+              directories:
+                - path: demo-applications/istio-gateway
+          - list:
+              elements:
+                - cluster: development
+                  url: https://development.vcluster-development:443
+                - cluster: staging
+                  url: https://staging.vcluster-staging:443
+                - cluster: production
+                  url: https://production.vcluster-production:443
   template:
     metadata:
-      name: '{{path.basename}}-istio-gateway'
+      name: "{{cluster}}-{{path.basename}}"
     spec:
       project: default
       source:
-        helm:
-          valueFiles:
-            - "configs/{{path.basename}}/values.yaml"
         repoURL: https://github.com/vikinglabs/gitops-poc.git
         targetRevision: HEAD
-        path: demo-applications/istio-gateway
+        path: "{{path}}"
+      destination:
+        server: "{{url}}"
+        namespace: istio-ingress
       syncPolicy:
         automated:
           prune: true
@@ -34,6 +45,47 @@ spec:
             duration: 5s
             maxDuration: 3m0s
             factor: 2
-      destination:
-        name: '{{path.basename}}'
-        namespace: istio-gateway
+#apiVersion: argoproj.io/v1alpha1
+#kind: ApplicationSet
+#metadata:
+#  name: istio-gateway
+#  annotations:
+#    argocd.argoproj.io/sync-wave: "-2"
+#spec:
+#  generators:
+#    - matrix:
+#        generators:
+#          - git:
+#              repoURL: https://github.com/vikinglabs/gitops-poc.git
+#              revision: HEAD
+#              directories:
+#                - path: demo-applications/istio-gateway
+#          - list:
+#              elements:
+#                - cluster: development
+#                  url: https://development.vcluster-development:443
+#                - cluster: staging
+#                  url: https://staging.vcluster-staging:443
+#                - cluster: production
+#                  url: https://production.vcluster-production:443
+#  template:
+#    metadata:
+#      name: "{{cluster}}-{{appName}}"
+#    spec:
+#      project: default
+#      source:
+#        repoURL: https://github.com/vikinglabs/gitops-poc.git
+#        targetRevision: HEAD
+#        path: "{{path}}"
+#        helm:
+#          releaseName: "{{appName}}"
+#          valuesFiles: "{{url}}/{{cluster}}/values/values.yaml"
+#      destination:
+#        server: "{{url}}"
+#        namespace: istio-system
+#      syncPolicy:
+#        automated:
+#          prune: true
+#          selfHeal: true
+#        syncOptions:
+#          - CreateNamespace=true
