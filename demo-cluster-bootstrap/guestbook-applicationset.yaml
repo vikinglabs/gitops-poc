@@ -3,7 +3,6 @@ kind: ApplicationSet
 metadata:
   name: guestbook
   annotations:
-    argocd.argoproj.io/sync-wave: "-2"
 spec:
   generators:
     - matrix:
@@ -23,13 +22,13 @@ spec:
                   url: https://production.vcluster-production:443
   template:
     metadata:
-      name: "{{cluster}}-{{appName}}"
+      name: "{{cluster}}-{{path.basename}}"
     spec:
       project: default
       source:
         repoURL: https://github.com/vikinglabs/gitops-poc.git
         targetRevision: HEAD
-        path: "{{path}}/*/{{cluster}}"
+        path: "{{path}}/overlays/{{cluster}}"
       destination:
         server: "{{url}}"
         namespace: guestbook
