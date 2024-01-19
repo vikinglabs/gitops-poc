@@ -2,10 +2,10 @@ apiVersion: v2
 name: drone
 description: A Helm chart for Kubernetes
 type: application
-version: 0.1.0
-appVersion: "1.20.2"
+version: 0.6.5
+appVersion: "2.20.0"
 
 dependencies:
 - name: drone
-  version: 1.20.2
-  repository: https://istio-release.storage.googleapis.com/charts
+  version: 0.6.5
+  repository: https://charts.drone.io
