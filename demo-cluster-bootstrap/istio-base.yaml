@@ -5,11 +5,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
-  ignoreDifferences:
-  - group: "admissionregistration.k8s.io"
-    kind: "ValidatingWebhookConfiguration"
-    jsonPointers:
-      - /webhooks/0/clientConfig/caBundle
   generators:
     - matrix:
         generators:
@@ -30,6 +25,11 @@ spec:
     metadata:
       name: "{{cluster}}-{{path.basename}}"
     spec:
+      ignoreDifferences:
+      - group: "admissionregistration.k8s.io"
+        kind: "ValidatingWebhookConfiguration"
+        jsonPointers:
+        - /webhooks/0/clientConfig/caBundle
       project: default
       source:
         repoURL: https://github.com/vikinglabs/gitops-poc.git
@@ -44,6 +44,7 @@ spec:
           selfHeal: false
         syncOptions:
           - CreateNamespace=true
+          - RespectIgnoreDifferences=true
         retry:
           limit: 5
           backoff:
