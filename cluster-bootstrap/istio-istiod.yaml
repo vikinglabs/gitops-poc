@@ -1,7 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: istio
+  name: istio-istiod
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
 spec:
   generators:
     - matrix:
@@ -10,11 +12,7 @@ spec:
               repoURL: https://github.com/vikinglabs/gitops-poc.git
               revision: HEAD
               directories:
-                - path: demo-applications/*
-                - path: demo-applications/istio-gateway
-                  exclude: true
-                - path: demo-applications/nginx-ingress
-                  exclude: true
+                - path: applications/istio-istiod
           - list:
               elements:
                 - cluster: development
@@ -25,7 +23,7 @@ spec:
                   url: https://production.vcluster-production:443
   template:
     metadata:
-      name: "{{path.basename}}"
+      name: "{{cluster}}-{{path.basename}}"
     spec:
       project: default
       source:
@@ -34,4 +32,16 @@ spec:
         path: "{{path}}"
       destination:
         server: "{{url}}"
-        namespace: "{{path.basename}}"
+        namespace: istio-system
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+        retry:
+          limit: 5
+          backoff:
+            duration: 5s
+            maxDuration: 3m0s
+            factor: 2
