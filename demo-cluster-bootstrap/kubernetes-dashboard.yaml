@@ -11,7 +11,14 @@ spec:
               revision: HEAD
               directories:
                 - path: demo-applications/kubernetes-dashboard
-          - cluster: {}
+          - list:
+              elements:
+                - cluster: development
+                  url: https://development.vcluster-development:443
+                - cluster: staging
+                  url: https://staging.vcluster-staging:443
+                - cluster: production
+                  url: https://production.vcluster-production:443
   template:
     metadata:
       name: "{{cluster}}-{{path.basename}}"
