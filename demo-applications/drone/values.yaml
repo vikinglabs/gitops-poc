@@ -1,3 +1,9 @@
 drone:
   env:
     DRONE_SERVER_HOST: "drone.localtest.me"
+    DRONE_GITHUB_CLIENT_ID: "eb7d79de8ffd26779128"
+    DRONE_GITHUB_CLIENT_SECRET: "22de58985cbf73a5a5ca854b319442606aaf62a3"
+    DRONE_RPC_SECRET: "7685dfd4e83b1bc821cff319b2f595ea"
+    DRONE_SERVER_PROTO: "http"
+    DRONE_USER_FILTER: "vikinglabs"
+
