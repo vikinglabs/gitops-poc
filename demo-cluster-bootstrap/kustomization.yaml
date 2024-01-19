@@ -8,4 +8,5 @@ resources:
   - istio-base.yaml
   - istio-istiod.yaml
   - istio-gatewayt.yaml
+  - grafana-agent.yaml 
   - guestbook.yaml
