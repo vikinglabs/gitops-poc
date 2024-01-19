@@ -7,13 +7,13 @@ drone:
     DRONE_SERVER_PROTO: "http"
     DRONE_USER_FILTER: "vikinglabs"
 
-ingress:
-  enabled: true
-  className: "nginx"
-  annotations:
-    kubernetes.io/ingress.class: nginx
-  hosts:
-    - host: drone.localtest.me
-      paths:
-        - path: /
-          pathType: Prefix
+  ingress:
+    enabled: true
+    className: "nginx"
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: drone.localtest.me
+        paths:
+          - path: /
+            pathType: Prefix
