@@ -8,5 +8,6 @@ resources:
   - istio-base.yaml
   - istio-istiod.yaml
   - istio-gatewayt.yaml
-  - grafana-agent.yaml 
+  - grafana-agent.yaml
+  - kubernetes-dashboard.yaml
   - guestbook.yaml

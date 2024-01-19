@@ -5,6 +5,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
+  ignoreDifferences:
+  - group: "admissionregistration.k8s.io"
+    kind: "ValidatingWebhookConfiguration"
+    jsonPointers:
+      - /webhooks/0/clientConfig/caBundle
   generators:
     - matrix:
         generators:
