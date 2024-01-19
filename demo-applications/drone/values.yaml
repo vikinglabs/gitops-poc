@@ -1,0 +1,3 @@
+drone:
+  env:
+    DRONE_SERVER_HOST: "drone.localtest.me"
